@@ -7,16 +7,15 @@
 	import {
 		Canvas
 	} from '@threlte/core';
-	import SceneOne from '$lib/SceneOne.svelte';
-	import SceneTwo from '$lib/SceneTwo.svelte';
+	import Hypercube from '$lib/Hypercube.svelte';
 </script>
 
 <section>
-	<h2>Scene One</h2>
+	<h2>Hypercube</h2>
 
 	<div class="canvas-wrapper">
 		<Canvas>
-			<SceneOne />
+			<Hypercube root=C/>
 		</Canvas>
 	</div>
 
