@@ -21,9 +21,6 @@
   } from 'three';
   import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial'
   import { tweened } from 'svelte/motion';
-  import { Note, Scale, Interval } from 'tonal';
-  import { chromas, pcset } from "@tonaljs/pcset";
-  import { transposeFrom } from "@tonaljs/note";
   import {
     Text
   } from '@threlte/extras'
@@ -41,17 +38,7 @@
   })
 
   const noteScale = 15;
-  const my_names = [0, 1, 2, 3, 4,5,6,7,8].map(Interval.fromSemitones);
-  const my_note = Note.transpose("C", "3m");
-  console.log(my_note);
 
-  const diminished_square = (root) => {
-    return [root, Note.transpose(root, "3m"), Note.transpose(root, "5d"), Note.transpose(root, "6M")]
-  }
-
-const get_squares = (root) => {
-  return [diminished_square(Note.transpose(root, "4P")), diminished_square(root), diminished_square(Note.transpose(root, "5P")), diminished_square(Note.transpose(root, "2M"))]
-}
 
 
 
@@ -142,15 +129,7 @@ const scale = spring(1)
 
 <DirectionalLight />
 <AmbientLight />
-<!-- {#each cyls as cyl}
-<Mesh 
-  geometry={new CylinderGeometry(1,1,cyl.length)}
-  material={new MeshStandardMaterial({color: cyl.color})}
-  position={{ x:cyl.position[0], y:cyl.position[1], z:cyl.position[2] }}
-  rotation={{ x:cyl.rotation[0], y:cyl.rotation[1], z:cyl.rotation[2] }}
->
-</Mesh>
-{/each} -->
+
 {#each lines as lin}
 <Line2
   points={lin.points}
